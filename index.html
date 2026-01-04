@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youssef Essam | Industrial &amp; Mechatronics Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c1324;
+      --bg-alt: #0f1a32;
+      --card: #0d162b;
+      --text: #e8ecf5;
+      --muted: #9da7bd;
+      --accent: #4fd1c5;
+      --accent-2: #f59e0b;
+      --border: #1e2a44;
+      --pill: rgba(255,255,255,0.05);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(79, 209, 197, 0.08), transparent 35%),
+                  radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.08), transparent 30%),
+                  linear-gradient(155deg, var(--bg), var(--bg-alt));
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    .nav-container {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+    }
+    .logo { font-family: 'Oswald', sans-serif; font-size: 1.4rem; letter-spacing: 0.5px; }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 14px; margin: 0; padding: 0; }
+    nav a { padding: 8px 12px; border-radius: 10px; color: var(--muted); font-weight: 500; transition: all 0.2s ease; }
+    nav a:hover { color: var(--text); background: rgba(56, 189, 248, 0.1); }
+    .btn-nav { background: var(--accent); color: #0b1020; font-weight: 700; }
+    .hero {
+      padding: 88px 0 64px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.4fr) minmax(240px, 0.8fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+    .hero-content { max-width: 780px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 16px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+      border-radius: 999px; background: var(--pill); border: 1px solid var(--border);
+      color: var(--text); font-weight: 600; letter-spacing: 0.1px;
+    }
+    .pill i { color: var(--accent); }
+    .impact-card {
+      background: linear-gradient(160deg, rgba(79, 209, 197, 0.14), rgba(12, 19, 36, 0.85));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+    }
+    .impact-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .impact-metric h3 { margin: 0; font-size: 2.1rem; color: var(--accent); }
+    .impact-metric p { margin: 4px 0 0; color: var(--muted); }
+    .badge-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge { padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); font-weight: 600; }
+    .hero h4 { color: var(--accent); margin: 0 0 6px; letter-spacing: 0.4px; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.4rem, 4vw, 3.2rem); margin: 0 0 14px; }
+    .hero p { color: var(--muted); margin: 0 0 20px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 18px; border-radius: 12px; font-weight: 700;
+      border: 1px solid var(--border); transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #67e8f9); color: #0b1020; border: none; }
+    .btn-outline { color: var(--text); }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+    .section { padding: 70px 0; }
+    .section-title { font-family: 'Oswald', sans-serif; margin: 0 0 16px; letter-spacing: 0.4px; }
+    .center { text-align: center; }
+    .bg-light { background: rgba(255,255,255,0.02); }
+    .bg-dark { background: #0b1020; }
+    .about-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: start;
+    }
+    .stats-box { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 16px; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; text-align: center; }
+    .stat h3 { margin: 0; font-size: 1.4rem; color: var(--accent); }
+    .stat p { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .education-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px;
+    }
+    .education-card h3 { margin: 0 0 12px; display: flex; align-items: center; gap: 8px; color: var(--accent); }
+    .edu-item { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--border); }
+    .edu-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+    .edu-item h4 { margin: 0 0 6px; }
+    .school { margin: 0 0 6px; color: var(--muted); font-size: 0.95rem; }
+    .desc { margin: 0; color: var(--muted); }
+    .timeline { display: grid; gap: 16px; }
+    .timeline-item {
+      display: grid; grid-template-columns: 52px 1fr; gap: 14px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px;
+    }
+    .timeline-icon {
+      width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(56, 189, 248, 0.12); color: var(--accent); font-size: 1.2rem;
+    }
+    .timeline-content h3 { margin: 0 0 6px; }
+    .company { color: var(--muted); font-size: 0.95rem; }
+    .timeline-content p { margin: 8px 0 0; color: var(--muted); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+      display: grid; grid-template-rows: auto 1fr;
+    }
+    .card-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px; background: rgba(56, 189, 248, 0.08); color: var(--accent);
+      font-weight: 700; letter-spacing: 0.2px;
+    }
+    .card-body { padding: 14px; color: var(--muted); }
+    .card-body .role { color: var(--text); font-weight: 700; margin: 0 0 6px; }
+    .card-body ul { padding-left: 18px; margin: 8px 0 0; }
+    .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+    .skill-col h3 { margin: 0 0 10px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span {
+      padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border); font-size: 0.92rem; color: var(--text);
+    }
+    .achievements { display: grid; gap: 10px; }
+    .achv { display: flex; gap: 10px; align-items: center; padding: 12px; background: var(--pill); border: 1px solid var(--border); border-radius: 12px; }
+    .achv i { color: var(--accent-2); }
+    .certs-container { margin-top: 26px; }
+    .cert-list { display: grid; gap: 10px; margin-top: 10px; }
+    .cert-item { display: flex; gap: 10px; align-items: center; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+    .contact-wrapper { text-align: center; }
+    .contact-wrapper h2 { margin: 0 0 6px; font-family: 'Oswald', sans-serif; }
+    .contact-wrapper p { color: var(--muted); margin: 0 0 16px; }
+    .contact-methods {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 10px 0 14px;
+    }
+    .method {
+      display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px;
+      border-radius: 12px; background: var(--card); border: 1px solid var(--border);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .method:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.24); }
+    .location { color: var(--muted); margin: 8px 0 0; }
+    footer {
+      text-align: center; padding: 22px 0; color: var(--muted);
+      border-top: 1px solid var(--border); background: #0a0f1b;
+    }
+    @media (max-width: 820px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-container { gap: 12px; }
+      nav ul { flex-wrap: wrap; }
+      .hero { padding-top: 70px; }
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">Youssef<span>.Eng</span></div>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact" class="btn-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-meta">
+            <span class="pill"><i class="fas fa-industry" aria-hidden="true"></i> Industry 4.0</span>
+            <span class="pill"><i class="fas fa-stopwatch" aria-hidden="true"></i> SMED &amp; Lean</span>
+            <span class="pill"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Padova, Italy</span>
+          </div>
+          <h4>Production Engineer &amp; MSc Mechatronics</h4>
+          <h1>Designing smarter factories with Lean, automation, and data.</h1>
+          <p>Bridging industrial operations and digital control. I reduce changeover times, build autonomous robots, and deliver dashboards that keep teams aligned on throughput and quality.</p>
+          <div class="hero-btns">
+            <a href="https://drive.google.com/file/d/18fo0Rx7d8PJYLd6c3rgzhwDQV6-gE8fg/view?usp=drivesdk" class="btn btn-primary" target="_blank" rel="noopener">Download CV (PDF)</a>
+            <a href="https://www.linkedin.com/in/useifessam" target="_blank" rel="noopener" class="btn btn-outline">
+              <i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#contact" class="btn btn-outline">Book a call</a>
+          </div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-row">
+            <div class="impact-metric">
+              <h3>72%</h3>
+              <p>Changeover time cut (SMED)</p>
+            </div>
+            <div class="badge">Steel production case</div>
+          </div>
+          <div class="impact-row">
+            <div class="impact-metric">
+              <h3>10+</h3>
+              <p>Robotics builds mentored</p>
+            </div>
+            <div class="badge">Autonomous platforms</div>
+          </div>
+          <div class="badge-stack">
+            <span class="badge">Lean &amp; VSM</span>
+            <span class="badge">SMED</span>
+            <span class="badge">Power BI</span>
+            <span class="badge">SolidWorks (CSWP)</span>
+            <span class="badge">Arduino &amp; C</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Professional Profile</h2>
+          <p>I am a Production Engineer and current <strong>MSc Mechatronics student at the University of Padova</strong>, focused on Lean manufacturing, automation, and data-driven decisions. I thrive where physical processes meet control systems.</p>
+          <p>Recent wins include a <strong>72% reduction in changeover time</strong> for a steel production line, mentoring robotics teams to build autonomous platforms, and delivering reports that keep executives aligned on throughput and quality.</p>
+          <div class="stats-box">
+            <div class="stat">
+              <h3>72%</h3><p>Changeover reduction</p>
+            </div>
+            <div class="stat">
+              <h3>3.04</h3><p>BSc CGPA</p>
+            </div>
+            <div class="stat">
+              <h3>B2</h3><p>English Level</p>
+            </div>
+          </div>
+        </div>
+        <div class="education-card">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="edu-item">
+            <h4>MSc in Mechatronics Engineering</h4>
+            <p class="school">University of Padova, Italy | 2025 - Present</p>
+            <p class="desc">Focus: Automation, Control Systems, Power Electronics.</p>
+          </div>
+          <div class="edu-item">
+            <h4>BSc in Production &amp; Industrial Engineering</h4>
+            <p class="school">Alexandria University, Egypt | 2020 - 2025</p>
+            <p class="desc">Graduation Project: Lean Manufacturing Implementation.</p>
+          </div>
+          <div class="edu-item">
+            <h4>Certifications</h4>
+            <p class="desc">CSWP (SolidWorks) · SC0x1 Supply Chain Fundamentals (MITx) · CyberOps Associate (Cisco)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title center">Professional Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-industry" aria-hidden="true"></i></div>
+            <div class="timeline-content">
+              <h3>Intern — Planning &amp; Development</h3>
+              <span class="company">Ezz Dekheila Steel (EZDK) | Jun 2024 - Jul 2024</span>
+              <p>Ran time studies, mapped bottlenecks, and applied SMED to cut changeover time by 72% on a steel production line. Built KPIs and reporting to keep maintenance and production aligned.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-boxes" aria-hidden="true"></i></div>
+            <div class="timeline-content">
+              <h3>Intern — Supply Chain &amp; Risk Mgmt</h3>
+              <span class="company">AmCham Egypt | Aug 2024</span>
+              <p>Analyzed material handling and inventory flows, identified risk points, and proposed mitigations to stabilize supply for manufacturing partners.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-robot" aria-hidden="true"></i></div>
+            <div class="timeline-content">
+              <h3>Technical Team Mentor</h3>
+              <span class="company">Mind Cloud Team | 2021 - 2023</span>
+              <p>Led mechanical design and assembly for autonomous mobile robots (UGVC &amp; Mine Sweepers competitions). Coached teams on iterative prototyping, structural integrity, and sensor integration under strict budget and time constraints.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title center">Key Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="card-header">
+              <i class="fas fa-stopwatch" aria-hidden="true"></i>
+              <h3>Lean Manufacturing &amp; Optimization</h3>
+            </div>
+            <div class="card-body">
+              <p class="role">Graduation Project · EZDK &amp; Groupe SEB</p>
+              <p>Industrial case studies applying VSM, 5S, and SMED to shorten changeovers and prepare lines for future automation.</p>
+              <ul>
+                <li><strong>Impact:</strong> 72% reduction in changeover time on steel line; documented standard work and visual controls.</li>
+                <li><strong>Outcome:</strong> Redesigned SDA assembly flows to be automation-ready.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-header">
+              <i class="fas fa-microchip" aria-hidden="true"></i>
+              <h3>Autonomous Robotics</h3>
+            </div>
+            <div class="card-body">
+              <p class="role">UGVC &amp; Mine Sweepers Competitions</p>
+              <p>Managed full mechanical lifecycle under strict budget and time constraints.</p>
+              <ul>
+                <li><strong>Focus:</strong> Structural integrity, drivetrain reliability, sensor integration.</li>
+                <li><strong>Stack:</strong> SolidWorks, Arduino, C programming.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-header">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+              <h3>Production Analytics</h3>
+            </div>
+            <div class="card-body">
+              <p class="role">Time Study &amp; KPI Reporting</p>
+              <p>Built lightweight dashboards to visualize takt time, downtime causes, and throughput trends for shop-floor teams.</p>
+              <ul>
+                <li><strong>Tools:</strong> Power BI, Minitab, Excel.</li>
+                <li><strong>Result:</strong> Faster decision cycles and clearer maintenance triggers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section bg-dark">
+      <div class="container">
+        <h2 class="section-title center">Technical Arsenal</h2>
+        <div class="skills-wrapper">
+          <div class="skill-col">
+            <h3>Operations &amp; Lean</h3>
+            <div class="tags">
+              <span>SMED</span><span>VSM</span><span>5S</span><span>Kaizen</span><span>Root Cause Analysis</span><span>Time Study</span>
+            </div>
+          </div>
+          <div class="skill-col">
+            <h3>Automation &amp; Control</h3>
+            <div class="tags">
+              <span>Arduino</span><span>C Programming</span><span>Industrial Control Concepts</span><span>IoT Basics</span>
+            </div>
+          </div>
+          <div class="skill-col">
+            <h3>Design &amp; Simulation</h3>
+            <div class="tags">
+              <span>SolidWorks (CSWP)</span><span>AutoCAD</span><span>ANSYS</span><span>CypCut</span>
+            </div>
+          </div>
+          <div class="skill-col">
+            <h3>Data &amp; Reporting</h3>
+            <div class="tags">
+              <span>Power BI</span><span>Minitab</span><span>Excel for Ops</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="certs-container">
+          <h3 class="center">Achievements</h3>
+          <div class="achievements">
+            <div class="achv"><i class="fas fa-trophy" aria-hidden="true"></i><span>72% changeover-time reduction via SMED on a steel production line</span></div>
+            <div class="achv"><i class="fas fa-robot" aria-hidden="true"></i><span>Mentored autonomous robotics teams (UGVC &amp; Mine Sweepers)</span></div>
+            <div class="achv"><i class="fas fa-certificate" aria-hidden="true"></i><span>Certified SolidWorks Professional (CSWP)</span></div>
+          </div>
+        </div>
+
+        <div class="certs-container">
+          <h3 class="center">Certifications</h3>
+          <div class="cert-list">
+            <div class="cert-item"><i class="fas fa-certificate" aria-hidden="true"></i> Certified SolidWorks Professional (CSWP)</div>
+            <div class="cert-item"><i class="fas fa-certificate" aria-hidden="true"></i> SC0x1: Supply Chain Fundamentals (MITx)</div>
+            <div class="cert-item"><i class="fas fa-certificate" aria-hidden="true"></i> CyberOps Associate (Cisco)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-wrapper">
+        <h2>Let's Connect</h2>
+        <p>Open to Industrial Engineering, Automation, and Process Improvement roles in Italy.</p>
+        <div class="contact-methods">
+          <a href="mailto:useifessam@outlook.com" class="method">
+            <i class="fas fa-envelope" aria-hidden="true"></i><span>useifessam@outlook.com</span>
+          </a>
+          <a href="https://wa.me/393509355638" class="method">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i><span>+39 350 935 5638</span>
+          </a>
+          <a href="https://www.linkedin.com/in/useifessam" class="method" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn Profile</span>
+          </a>
+        </div>
+        <p class="location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 129 Corso Padova, Italy</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Youssef Essam Mohamed. Engineering Portfolio.</p>
+  </footer>
+</body>
+</html>
