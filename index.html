@@ -98,6 +98,19 @@
     .about-grid {
       display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: start;
     }
+    .about-photo {
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+    .about-photo img {
+      width: min(220px, 90%);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
     .stats-box { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 16px; }
     .stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; text-align: center; }
     .stat h3 { margin: 0; font-size: 1.4rem; color: var(--accent); }
@@ -239,6 +252,9 @@
     <section id="about" class="section">
       <div class="container about-grid">
         <div class="about-text">
+          <div class="about-photo">
+            <img src="portrait.jpg" alt="Youssef Essam - Industrial Engineer" loading="lazy" />
+          </div>
           <h2 class="section-title">Professional Profile</h2>
           <p>I am a Production Engineer and current <strong>MSc Mechatronics student at the University of Padova</strong>, focused on Lean manufacturing, automation, and data-driven decisions. I thrive where physical processes meet control systems.</p>
           <p>Recent wins include a <strong>72% reduction in changeover time</strong> for a steel production line, mentoring robotics teams to build autonomous platforms, and delivering reports that keep executives aligned on throughput and quality.</p>
